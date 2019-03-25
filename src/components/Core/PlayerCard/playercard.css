@@ -1,0 +1,31 @@
+.cardContainer {
+  width: 110px;
+  /* height: 100%; */
+  background-color: #1A1A1A;
+  position: absolute;
+}
+
+.cardTop {
+  height: 40px;
+  width: 100%;
+  background-color: #CB1717;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+.cardTop h4 {
+  margin: 0;
+}
+
+.cardMain {
+  /* height: 100px; */
+  width: 100%;
+  color: #fff;
+}
+
+.cardMain img {
+  width: 100%;
+  height: auto;
+}
