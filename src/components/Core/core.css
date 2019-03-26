@@ -1,0 +1,19 @@
+.appContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.field {
+	grid-column: 1 / 4;
+	position: relative;
+}
+
+.lineup {
+	grid-column: 4 / 5;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
