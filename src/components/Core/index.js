@@ -36,7 +36,7 @@ class FullWidthGrid extends Component {
 		fetch(
 			'https://cdnapi.manutd.com/api/v1/en/se/all/web/list/playergrid/Team%20Level%2FFirst%20Team'
 		)
-			.then(res => res.json())
+			.then(res => (res.status === 403) ? window.alert('Did you forget to unlock the portal? Please visit this link below to access the hidden API https://www.manutd.com/en/players-and-staff/first-team') : res.json())
 			.then(json => {
 				const players = json.PlayerGridResponse.grouped
 
