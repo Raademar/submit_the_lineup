@@ -1,31 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import Grid from '@material-ui/core/Grid'
 import Field from '../Field'
 import PlayerCard from './PlayerCard'
 import update from 'immutability-helper'
 import { DropTarget } from 'react-dnd'
 import './core.css'
-
-const collect = (connect, monitor) => {
-	return {
-		connectDropTarget: connect.dropTarget(),
-		hovered: monitor.isOver(),
-		item: monitor.getItem()
-	}
-}
-
-const styles = theme => ({
-	root: {
-		flexGrow: 1
-	},
-	paper: {
-		padding: theme.spacing.unit * 2,
-		textAlign: 'center',
-		color: theme.palette.text.secondary
-	}
-})
 
 const dropTarget = {
 	drop(props, monitor, component) {
@@ -41,7 +19,6 @@ const dropTarget = {
 	}
 }
 
-// const { classes } = this.props
 class FullWidthGrid extends Component {
 	constructor(props) {
 		super(props)
@@ -65,22 +42,24 @@ class FullWidthGrid extends Component {
 
 				players['position_t:defender'].doclist.docs.map(
 					player => (
-						(player.left = 0), (player.top = 0), (player.position = '')
+						((player.left = 0),
+						(player.top = 0),
+						(player.position = ''))
 					)
 				)
 				players['position_t:forward'].doclist.docs.map(
 					player => (
-						(player.left = 0), (player.top = 0), (player.position = '')
+						((player.left = 0), (player.top = 0), (player.position = ''))
 					)
 				)
 				players['position_t:midfielder'].doclist.docs.map(
 					player => (
-						(player.left = 0), (player.top = 0), (player.position = '')
+						((player.left = 0), (player.top = 0), (player.position = ''))
 					)
 				)
 				players['position_t:goalkeeper'].doclist.docs.map(
 					player => (
-						(player.left = 0), (player.top = 0), (player.position = '')
+						((player.left = 0), (player.top = 0), (player.position = ''))
 					)
 				)
 
@@ -112,11 +91,11 @@ class FullWidthGrid extends Component {
 		const { connectDropTarget } = this.props
 		return connectDropTarget(
 			<div>
-				<div container spacing={24} className="appContainer">
-					<div item xs={12} sm={8} className="field">
+				<div className="appContainer">
+					<div className="field">
 						<Field />
 					</div>
-					<div item xs={12} sm={4} className="lineup">
+					<div className="lineup">
 						{console.log(this.state.players)}
 						{Array.isArray(this.state.players) &&
 							this.state.players.map((player, index) => (
@@ -127,7 +106,6 @@ class FullWidthGrid extends Component {
 										player.celumimagesvariant_s.ImageDetails[0].CropUrl.img1x
 									}`}
 									key={index}
-									//player={player}
 									top={player.top}
 									left={player.left}
 									id={index}
@@ -156,12 +134,7 @@ class FullWidthGrid extends Component {
 		)
 	}
 }
-// FullWidthGrid.propTypes = {
-// 	classes: PropTypes.object.isRequired
-// }
 
-// export default withStyles(styles)(FullWidthGrid)
 export default DropTarget('PlayerCard', dropTarget, connect => ({
 	connectDropTarget: connect.dropTarget()
-	// withStyles: withStyles(styles)
 }))(FullWidthGrid)

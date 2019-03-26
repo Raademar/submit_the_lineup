@@ -9,17 +9,9 @@ const cardSource = {
 	}
 }
 
-function collect(connect, monitor) {
-	return {
-		connectDragSource: connect.dragSource(),
-		connectDragPreview: connect.dragPreview(),
-		isDragging: monitor.isDragging()
-	}
-}
-
 class PlayerCard extends Component {
 	render() {
-		const { isDragging, connectDragSource, player, left, top } = this.props
+		const { isDragging, connectDragSource, left, top } = this.props
 		const styles = {
 			opacity: isDragging ? 0 : 1,
 			top: top,
